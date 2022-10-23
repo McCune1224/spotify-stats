@@ -11,6 +11,7 @@ func Auth(c *fiber.Ctx) error {
 	path := auth.SpotifyConfig()
 	log.Print(path.ClientID)
 	log.Print(path.ClientSecret)
+	log.Print(path.RedirectURL)
 	url := path.AuthCodeURL("state")
 	return c.Redirect(url)
 }
