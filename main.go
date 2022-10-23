@@ -28,11 +28,10 @@ func main() {
 	// Routes for oauth (spotify)
 	router.CreateAuthRoutes(app)
 
-	// app.Get("/", func(c *fiber.Ctx) error {
-	// 	return c.JSON(fiber.Map{"Hello": "World"})
-	// })
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.JSON(fiber.Map{"Hello": "World"})
+	})
 
-	app.Static("/", "./web/dist")
 
 	app.Listen(getPort())
 }
