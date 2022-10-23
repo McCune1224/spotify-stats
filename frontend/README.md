@@ -1,21 +1,21 @@
 ---
-title: Vite Preact (TS)
-description: Example Vite app that is configured with Preact and Typescipt
+title: Vite React (TS)
+description: Example Vite app that is configured with React and Typescipt
 tags:
   - vite
-  - preact
+  - react
   - typescript
 ---
 
-# Vite + Preact + Typescript Example
+# Vite + React + Typescript Example
 This example utilises vite for static site generation
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/wnRcev?referralCode=OH27A5)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/duzltn?referralCode=OH27A5)
 
 ## ✨ Features
 
 - Vite
-- Preact
+- React
 - TypeScript
 
 ## 💁‍♀️ How to use
