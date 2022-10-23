@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 	"statify/router"
 
 	"github.com/gofiber/fiber/v2"
@@ -9,6 +10,16 @@ import (
 
 	_ "github.com/joho/godotenv/autoload"
 )
+func getPort() string {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = ":3000"
+	} else {
+		port = ":" + port
+	}
+
+	return port
+}
 
 func main() {
 	app := fiber.New()
@@ -18,5 +29,5 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.JSON(fiber.Map{"Hello": "World"})
 	})
-	log.Fatal(app.Listen(":3000"))
+	app.Listen(getPort())
 }
