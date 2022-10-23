@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"os"
 	"statify/router"
 
@@ -10,6 +9,7 @@ import (
 
 	_ "github.com/joho/godotenv/autoload"
 )
+
 func getPort() string {
 	port := os.Getenv("PORT")
 	if port == "" {
