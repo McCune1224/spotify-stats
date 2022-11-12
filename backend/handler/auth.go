@@ -10,8 +10,8 @@ import (
 // Helper Function to make a Oauth2 config struct for Spotify
 func spotifyConfig() *oauth2.Config {
 	conf := &oauth2.Config{
-		ClientID:     os.Getenv("SPOTIFY_CLIENT_ID"),
-		ClientSecret: os.Getenv("SPOTIFY_CLIENT_SECRET"),
+		ClientID:     os.Getenv("SPOTIFY_CLIENT"),
+		ClientSecret: os.Getenv("SPOTIFY_SECRET"),
 		RedirectURL:  os.Getenv("REDIRECT_URL"),
 		Endpoint: oauth2.Endpoint{
 			AuthURL:  "https://accounts.spotify.com/authorize",
@@ -31,7 +31,7 @@ func spotifyConfig() *oauth2.Config {
 // process. will send user to authCodeURL with a "state" string for csrf saftey
 func SpotifyAuth(c *fiber.Ctx) error {
 	path := spotifyConfig()
-	url := path.AuthCodeURL("state")
+	url := path.AuthCodeURL("mysupersecretstate")
 	return c.Redirect(url)
 }
 
@@ -65,5 +65,5 @@ func SpotifyCallback(c *fiber.Ctx) error {
 	c.Cookie(accessToken)
 	c.Cookie(refreshToken)
 
-	return c.Redirect("/", 302)
+	return c.Redirect(os.Getenv("FRONTEND_URL"), 302)
 }
