@@ -3,6 +3,7 @@ import { useCookies } from 'react-cookie';
 import 'spotify-web-api-js'
 import SpotifyWebApi from 'spotify-web-api-js'
 import Artists from './Artists';
+import Songs from './Songs';
 
 
 const Dashboard = (props) => {
@@ -44,8 +45,19 @@ const Dashboard = (props) => {
                     {user && <p className="text-3xl font-extrabold text-slate-400">{user?.followers?.total} Followers</p>}
                 </div>
             </div>
-            <Artists api={spoAPI} />
 
+            <div className="py-5">
+                <h1 className="text-slate-200">
+                    Your Top Artists
+                </h1>
+                <Artists api={spoAPI} />
+            </div>
+            <div>
+                <h1 className="text-slate-200">
+                    Your Top Tracks
+                </h1>
+                <Songs api={spoAPI} />
+            </div>
 
         </div>
     )
