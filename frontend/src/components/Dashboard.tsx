@@ -24,40 +24,36 @@ const Dashboard = (props) => {
 
 
 
-    const pfImage = user?.images[0]
+
     return (
         <div>
-            <nav className="flex">
-                <a className="px-5" href="/">
+            <nav className="pt-4 pb-10 flex items-center justify-between">
+                <p className="text-5xl text-white">Spotify-Stats</p>
+                <a className="" href="/">
                     <button
-                        className="text-zinc-900 text-5xl bg-emerald-300 rounded-lg py-2 
-                hover:bg-emerald-500 active:bg-emerald-600 flex-auto "
+                        className="grid-cols-3 px-2 py-2 text-zinc-900 text-5xl bg-emerald-300 rounded-lg
+                hover:bg-emerald-500 active:bg-emerald-600 font-extrabold"
                         onClick={handleSignOutClick} >
-                        <i className="fa-brands fa-spotify"></i>
+                        <i className="fa-brands fa-spotify px-1"></i>
                         Sign Out
                     </ button></a>
             </nav>
 
             <div className="flex mt-10 mx-auto sm:mt-12 md:mt-16 lg:mt-20 xs:overflow-hidden md:overflow-visible ">
-                {user?.images && <img className="w-20 h-auto rounded-full" src={user?.images[0].url} />}
+                <div>
+                    <a href={user?.uri} target="blank_">
+                        {user?.images &&
+                            <img className="w-20 h-auto border-dotted border-2 rounded-full transform hover:scale-[1.05] transition-all" src={user?.images[0].url} />}
+                    </a>
+                </div>
                 <div className="px-3 ">
                     {user && <p className="text-5xl font-extrabold text-white">{user?.display_name}</p>}
                     {user && <p className="text-3xl font-extrabold text-slate-400">{user?.followers?.total} Followers</p>}
                 </div>
             </div>
 
-            <div className="py-5">
-                <h1 className="text-slate-200">
-                    Your Top Artists
-                </h1>
-                <Artists api={spoAPI} />
-            </div>
-            <div>
-                <h1 className="text-slate-200">
-                    Your Top Tracks
-                </h1>
-                <Songs api={spoAPI} />
-            </div>
+            <Artists api={spoAPI} />
+            <Songs api={spoAPI} />
 
         </div>
     )

@@ -3,11 +3,13 @@ import React from 'react'
 const Login = () => {
     return (
         <div>
-            <nav className="flex">
+            <nav className="pt-4 pb-10 flex items-center justify-between">
+                <p className="text-5xl text-white">Spotify-Stats</p>
                 <a className="" href={import.meta.env.VITE_OAUTH_URL}>
                     <button
-                        className="text-zinc-900 text-5xl bg-emerald-300 rounded-lg py-2 hover:bg-emerald-500 active:bg-emerald-600 flex-auto ">
-                        <i className="fa-brands fa-spotify"></i>Sign in
+                        className="grid-cols-3 px-2 py-2 text-zinc-900 text-5xl bg-emerald-300 rounded-lg
+                hover:bg-emerald-500 active:bg-emerald-600 font-extrabold">
+                        <i className="fa-brands fa-spotify px-1"></i>Sign In
                     </ button>
                 </a>
             </nav>
