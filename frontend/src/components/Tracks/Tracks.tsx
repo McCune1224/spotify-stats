@@ -34,10 +34,10 @@ const Songs = () => {
     return (
         <div ref={parent} className="text-white py-5">
             <div className="flex justify-between py-7">
-                <h3 className="text-white text-4xl">Your Top Artists</h3>
+                <h3 className="text-white font-extrabold text-5xl">Your Top Tracks</h3>
                 <button>
                     <h3
-                        className="border-2 border-solid text-white 
+                        className="underline text-white 
                         text-4xl transform hover:scale-[1.05] transition-all"
                         onClick={() => setToggleTracks(!toggleTracks)}
                     >

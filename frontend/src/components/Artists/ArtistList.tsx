@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface Artists {
     response: SpotifyApi.UsersTopArtistsResponse;
 }
-
 const ArtistList = (props: Artists) => {
     return (
         <div>
-            {props.response.items.slice(0, 10).map((artist, i) => (
+            {props.response.items.map((artist, i) => (
                 <a href={artist.external_urls.spotify} target="blank_" key={i}>
                     <div
-                        className="justify-between flex transform hover:scale-[1.05] transition-all border-4 p-2 border-double"
+                        className="justify-between flex transform hover:scale-[1.05] transition-all p-2 bg-zinc-800 border-2"
                         key={artist.id}
                     >
-                        <p className="text-2xl text-emerald-200">#{i + 1}</p>
+                        <p className="text-2xl ">#{i + 1}</p>
                         <p className="text-center text-4xl text-white ">
                             {artist.name}
                         </p>

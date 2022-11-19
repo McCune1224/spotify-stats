@@ -3,6 +3,7 @@ import { useCookies } from "react-cookie";
 import "spotify-web-api-js";
 import SpotifyWebApi from "spotify-web-api-js";
 import Artists from "./Artists/Artists";
+import Footer from "./Footer";
 import Tracks from "./Tracks/Tracks";
 
 const Dashboard = (props) => {
@@ -23,11 +24,14 @@ const Dashboard = (props) => {
     return (
         <div>
             <nav className="pt-4 pb-10 flex items-center justify-between">
-                <p className="text-5xl text-white">Spotify-Stats</p>
+                <p className="text-5xl text-white">
+                    <i className="fa-solid fa-magnifying-glass-chart"></i>
+                    Spotify-Stats
+                </p>
                 <a className="" href="/">
                     <button
-                        className="grid-cols-3 px-2 py-2 text-zinc-900 text-5xl bg-emerald-300 rounded-lg
-                hover:bg-emerald-500 active:bg-emerald-600 font-extrabold"
+                        className="grid-cols-3 px-2 py-2 text-zinc-900 text-5xl bg-green-400 rounded-lg
+                hover:bg-green-500 active:bg-green-600 font-extrabold"
                         onClick={handleSignOutClick}
                     >
                         <i className="fa-brands fa-spotify px-1"></i>
@@ -38,7 +42,7 @@ const Dashboard = (props) => {
 
             <div className="flex mt-10 mx-auto sm:mt-12 md:mt-16 lg:mt-20 xs:overflow-hidden md:overflow-visible ">
                 <div>
-                    <a href={user?.uri} target="blank_">
+                    <a href={user?.external_urls.spotify} target="blank_">
                         {user?.images && (
                             <img
                                 className="w-20 h-auto border-dotted border-2 rounded-full transform hover:scale-[1.05] transition-all"
@@ -49,7 +53,7 @@ const Dashboard = (props) => {
                 </div>
                 <div className="px-3 ">
                     {user && (
-                        <p className="text-5xl font-extrabold text-white">
+                        <p className="text-5xl font-bold text-white">
                             {user?.display_name}
                         </p>
                     )}
@@ -62,8 +66,10 @@ const Dashboard = (props) => {
             </div>
 
             <Artists />
+            <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <Tracks />
-            {/* <Songs api={spoAPI} /> */}
+            <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <Footer />
         </div>
     );
 };
