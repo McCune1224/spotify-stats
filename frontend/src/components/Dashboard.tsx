@@ -6,7 +6,7 @@ import Artists from "./Artists/Artists";
 import Footer from "./Footer";
 import Tracks from "./Tracks/Tracks";
 
-const Dashboard = (props) => {
+const Dashboard = (props: any) => {
     const [cookies, setCookie, removeCookie] = useCookies(["AccessToken"]);
 
     const spoAPI = new SpotifyWebApi();
