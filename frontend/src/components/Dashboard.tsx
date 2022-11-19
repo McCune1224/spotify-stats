@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import "spotify-web-api-js";
 import SpotifyWebApi from "spotify-web-api-js";
-import Artists from "./Artists";
-import Songs from "./Songs";
+import Artists from "./Artists/Artists";
 
 const Dashboard = (props) => {
     const [cookies, setCookie, removeCookie] = useCookies(["AccessToken"]);

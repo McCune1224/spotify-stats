@@ -1,6 +1,6 @@
 import React, { startTransition, useEffect, useRef, useState } from "react";
 import autoAnimate from "@formkit/auto-animate";
-import fetchArtists from "../hooks/fetchArtists";
+import fetchArtists from "./hooks/fetchArtists";
 import ArtistList from "./ArtistList";
 import SpotifyWebApi from "spotify-web-api-js";
 

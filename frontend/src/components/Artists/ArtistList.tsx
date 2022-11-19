@@ -1,5 +1,4 @@
 import React from "react";
-import fetchArtists from "../hooks/fetchArtists";
 
 interface Artists {
     response: SpotifyApi.UsersTopArtistsResponse;
