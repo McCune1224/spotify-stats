@@ -53,19 +53,6 @@ func SpotifyCallback(c *fiber.Ctx) error {
 	if len(token.AccessToken) < 1 {
 		return c.SendString("FAILED NO ACCESS TOKEN")
 	}
-	accessToken := new(fiber.Cookie)
-	accessToken.Name = "AccessToken"
-	accessToken.Value = token.AccessToken
-	accessToken.Expires = token.Expiry
-	accessToken.Domain = os.Getenv("FRONTEND_DOMAIN")
 
-	refreshToken := new(fiber.Cookie)
-	refreshToken.Name = "RefreshToken"
-	refreshToken.Value = token.RefreshToken
-	refreshToken.Domain = os.Getenv("FRONTEND_DOMAIN")
-
-	c.Cookie(accessToken)
-	c.Cookie(refreshToken)
-
-	return c.Redirect(os.Getenv("FRONTEND_URL"), 302)
+	return c.Redirect(os.Getenv("FRONTEND_URL")+"?access_token="+token.AccessToken, 302)
 }
