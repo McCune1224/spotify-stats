@@ -57,10 +57,12 @@ func SpotifyCallback(c *fiber.Ctx) error {
 	accessToken.Name = "AccessToken"
 	accessToken.Value = token.AccessToken
 	accessToken.Expires = token.Expiry
+	accessToken.Domain = os.Getenv("FRONTEND_DOMAIN")
 
 	refreshToken := new(fiber.Cookie)
 	refreshToken.Name = "RefreshToken"
 	refreshToken.Value = token.RefreshToken
+	refreshToken.Domain = os.Getenv("FRONTEND_DOMAIN")
 
 	c.Cookie(accessToken)
 	c.Cookie(refreshToken)
