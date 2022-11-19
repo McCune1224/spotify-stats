@@ -2,22 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import SpotifyWebApi from "spotify-web-api-js";
 
-function fetchArtists(searchSpan?: string) {
+function fetchSongs(searchSpan?: string) {
     const [cookies] = useCookies(["AccessToken"]);
     const spotifyClient = new SpotifyWebApi();
     spotifyClient.setAccessToken(cookies["AccessToken"]);
 
-    const [artists, setArtists] =
-        useState<SpotifyApi.UsersTopArtistsResponse>();
+    const [tracks, setTracks] = useState<SpotifyApi.UsersTopTracksResponse>();
     useEffect(() => {
         searchSpan
             ? spotifyClient
-                  .getMyTopArtists({ time_range: searchSpan })
-                  .then((rsp) => setArtists(rsp))
-            : spotifyClient.getMyTopArtists().then((rsp) => setArtists(rsp));
+                  .getMyTopTracks({ time_range: searchSpan })
+                  .then((rsp) => setTracks(rsp))
+            : spotifyClient.getMyTopTracks().then((rsp) => setTracks(rsp));
     }, []);
-
-    return artists;
+    return tracks;
 }
 
-export default fetchArtists;
+export default fetchSongs;

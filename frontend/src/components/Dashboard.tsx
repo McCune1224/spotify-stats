@@ -3,6 +3,7 @@ import { useCookies } from "react-cookie";
 import "spotify-web-api-js";
 import SpotifyWebApi from "spotify-web-api-js";
 import Artists from "./Artists/Artists";
+import Tracks from "./Tracks/Tracks";
 
 const Dashboard = (props) => {
     const [cookies, setCookie, removeCookie] = useCookies(["AccessToken"]);
@@ -61,6 +62,7 @@ const Dashboard = (props) => {
             </div>
 
             <Artists />
+            <Tracks />
             {/* <Songs api={spoAPI} /> */}
         </div>
     );
