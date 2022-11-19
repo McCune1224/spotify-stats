@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="text-white font-extralight text-3xl">
             <div className="grid grid-cols-4 text-center">
                 <p className="col-span-4 text-xl">
-                    Hello! Thanks for viewing my site, wanna get in touch? heres
+                    Hello! Thanks for viewing my site. Wanna get in touch? Here is
                     a few links to do so! - Alex
                 </p>
                 <a
