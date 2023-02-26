@@ -6,13 +6,8 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func CreateAuthRoutes(app *fiber.App) {
+func CreateOauthRoutes(app *fiber.App) {
 	auth := app.Group("/auth")
-	auth.Get("/spotify", handler.SpotifyAuth)
+	auth.Get("/spotify", handler.SpotifyLogin)
 	auth.Get("/spotify/callback", handler.SpotifyCallback)
 }
-
-// func CreateSpotifyAPIRoutes(app *fiber.App) {
-// 	api := app.Group("/api")
-// 	api.Get("/me", handler.GetUser)
-// }
